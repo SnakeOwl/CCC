@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css?family=Exo+2')
+    
+html, body
+    height 100%
+    margin 0
+    padding 0
+    background url(./Images/backg.png)
+    
+    
+main, header, footer
+    margin 0 auto
+    width 1100px
+    padding 10px
+    background rgba(255,255,255, 0.88)
+    
+ul
+    padding 0
+    margin 0
+    list-style-type none   
+*
+    font-family: 'Exo 2', sans-serif;
+
+a
+    text-decoration none
+    
+header
+    height 50px
+    .logo
+        float left
+        height 40px
+    form
+        border 1px solid #D2D7D3
+        padding 3px
+        float left
+        width 400px
+        input[type=text]
+            margin-top 2px
+            float left
+            width 90%
+            padding 3px
+        .Bfind
+            color mediumpurple
+            display block
+            font-size 24px
+            float left
+            padding 3px
+            cursor pointer
+    nav
+        display block
+        float left
+        width 520px
+        ul
+            display flex
+            flex-direction row
+            flex-wrap nowrap
+            justify-content space-around
+            li
+                align-self center
+                font-size 32px
+                padding 3px
+                a
+                    color #4183D7
+                    text-decoration none
+                a:visited
+                    color #4183D7
+                    
+main
+    .filter
+        margin 5px
+        width 650px
+        float left
+        #wowslider-container1
+            margin 5px
+        select
+            padding 3px
+            font-size 16px
+    .typ
+        padding-top 30px
+        width 420px
+        float left
+        ul
+            width 100%
+            float left           
+            display block
+    .tovars
+        margin-top 10px
+        padding-top 15px
+        width 100%
+        display flex
+        flex-direction row
+        flex-wrap wrap
+        justify-content center
+        .tovar
+            background rgba(255,255,255, 0.5)
+            margin 10px 5px
+            width 250px
+            height 410px
+            .image
+                padding 3px
+                img
+                    width 244px
+                    height 180px
+            .text
+                width 100%
+                .reit, .inBox
+                    display none
+                a
+                    font-size 18px
+                    color #ff6b00
+                .reit:after
+                    content url(./Images/star.png)
+                .price
+                    color #666
+            .text:hover .reit
+                display block
+            .text:hover .inBox
+                display block
+            .text *
+                display block
+                margin 3px auto
+                text-align center
+    .pages
+        text-align center
+        width 900px
+        margin 0 auto
+        a
+            padding 4px
+    .priceTovar
+        color #00E640
+        font-size 24px
+    .imagesTovar
+        float right
+        width 60px
+        height 240px
+        img
+            cursor pointer
+            border 1px solid #ccc
+            display block
+            width 60px
+            height 60px
+    .mainImg
+        width 370px
+        height 246px
+        float right
+        margin 0 0 10px 10px
+        border 1px solid #ddd
+        background-size contain
+        background-repeat no-repeat
+        background-position center
+    .buyTovar
+        margin 10px 0
+    .tparametrs
+        margin-bottom 15px
+        max-width: 80%;
+        width: 80%;
+        border-collapse: collapse;
+        text-align: left;
+        td
+            color: #222;
+            padding: 9px 8px;
+        td:first-letter
+            text-transform uppercase
+        tr:nth-child(2n)
+            background rgb(230,230,230)
+        tr:hover
+            background #ccc
+        tr:first-child
+            border-bottom 2px solid #1E8BC3
+    .toInfo
+        color #4183D7
+    .toInfo:visited
+        color #4183D7
+    .Rewievs
+        form
+            textarea
+                resize none
+                width 600px
+                height 150px
+    .tov
+        border 1px solid #F5D76E
+        border-radius 15px 0 15px 0
+        padding 15px
+        a
+            color#4183D7
+            text-decoration none
+        a:visited
+            color#4183D7
+    
+    .panel input, textarea
+        margin-top 3px
+    .store
+        width 100%
+        padding 3px
+        table
+            font-size: 18px;
+            background: white;
+            max-width: 800px;
+            width: 1000px;
+            max-width 1000px
+            border-collapse: collapse;
+            text-align: left;
+            th
+                color: #222;
+                border-bottom: 2px solid #1E8BC3;
+                padding: 10px 12px;
+            td:first-letter
+                text-transform uppercase
+            td
+                color: #222;
+                padding: 5px 8px;
+            tr:nth-child(2n)
+                background rgb(230,230,230)
+            tr:hover
+                background #ccc
+
+    .editPpl
+        color green
+    .editPpl:visited
+        color green
+    .orders
+        margin 15px 0
+        table
+            width 100%
+            td, th
+                border-right 2px solid lightgray
+            td:first-letter, th:first-letter
+                text-transform uppercase
+    
+    .forms
+        min-width 1050px
+        width 1050px
+        clear right
+        display flex
+        flex-direction row
+        flex-wrap wrap
+        justify-content space-around
+        .form
+            border 1px solid silver
+            float left
+            padding 10px
+    .registr, .inner
+        padding 10px 25px
+        input
+            padding 3px
+            margin 4px
+         
+            
+        
+    .infoDelivery
+        margin 20px 50px
+    
+.back
+    position fixed
+    top 0px
+    left 0px
+    width 100%
+    height 100%
+    background rgba(0,0,0, .5)
+    display none
+    z-index 100
+    .speedBuy
+        width 420px
+        height 180px
+        padding 40px
+        border 3px solid #4183D7
+        border-radius 25px
+        position fixed
+        left  calc((100% - 500px)/2)
+        top calc((100% - 500px)/2)
+        background white
+        z-index 101
+        button
+            margin 40px 110px
+            
+        
+    
+.backgroundPlata
+    background rgba(0,0,0, .5)
+    width 100%
+    height 100%
+    position fixed
+    left 0
+    top 0
+    .Plata
+        background white
+        width 600px
+        height 350px
+        padding 40px
+        border 3px solid #4183D7
+        border-radius 25px
+        position fixed
+        left  calc((100% - 680px)/2)
+        top calc((100% - 330px)/2)
+        form
+            input 
+                margin-top 10px
+        button
+            margin-top 7px
