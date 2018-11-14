@@ -2,7 +2,7 @@
 include_once 'head.php';
 include_once 'header.php';
 ?>
-    <main>
+    <main class="container">
         <div class="registr">
             <h4>Регистрация</h4>
 
