@@ -2,7 +2,7 @@
 include_once 'head.php';
 include_once 'header.php';
 ?>
-    <main>
+    <main class="container">
         <?php
     if (isset($_GET['edit'])) {
         if ($_COOKIE['ID'] != 11) {
@@ -24,13 +24,12 @@ include_once 'header.php';
     }
     ?>
                 <h2>Наши магазины.</h2>
-                <div class="store">
-                    <table>
-                        <tr>
+                    <table class="table table-striped table-bordered table-hover">
+                       <thead class="thead-light">
                             <th>Название</th>
                             <th>Адрес</th>
                             <th>График работы</th>
-                        </tr>
+                        </thead>
                         <?php
         $stores = getStores();
         while ($data = $stores->fetch_array(MYSQLI_ASSOC)) {
@@ -66,7 +65,6 @@ include_once 'header.php';
                             </tr>
                             <?php } ?>
                     </table>
-                </div>
 
 
     </main>
