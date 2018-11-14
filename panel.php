@@ -16,9 +16,57 @@ if (isset($_COOKIE['ID'])) {
 include_once 'head.php';
 include_once 'header.php';
 ?>
-    <main>
+    <main class="container">
         <a href="orders.php">перейти на страницу с заказами</a>
         <br>
+        
+        <?php
+    if (isset($_GET['edit'])) {
+        ?>
+            <div class="editing">
+                <form action="event.php" method="post" class="pane2">
+                    <div class="forms">
+
+                        <?php
+                    foreach ($_GET['edit'] as $key => $val) {
+                        $arrayOne = [];
+                        $arrayTwo = [];
+                        $tovars = getTovar($val);
+                        $tovar = $tovars->fetch_array(MYSQLI_ASSOC);
+
+                        $parameters = getParameters($val);
+                        while ($param = $parameters->fetch_array(MYSQLI_ASSOC)) {
+                            $arrayOne[] = $param['Parametr'];
+                            $arrayTwo[] = $param['Value'];
+                        }
+                        $arrayTree = array_merge($arrayOne, $arrayTwo);
+                        $par = implode(';', $arrayTree);
+                        ?>
+                            <div class="form">
+                                <p>изменение записи товара</p>
+                                <input type="hidden" name="firstName[]" value="<?= $tovar['Name'] ?>">
+                                <input type="text" name="nameTovar[]"  value="<?= $tovar['Name'] ?>" required><br>
+                                <textarea name="description[]" cols="30" rows="10" title="можно не указывать"><?= $tovar['Description'] ?></textarea><br>
+                                <input type="number" min="1" name="Price[]" value="<?= $tovar['Cell'] ?>" required><br>
+                                <input type="text" name="type[]" value="<?= $tovar['Type'] ?>" title="вводить тип товара(ввод)-вид (мышь).
+                                   ввод-мышь, ввод-клавиатура, ввод-камера, ввод-геймпад, ввод-руль
+                                   вывод-наушники, вывод-монитор, вывод-колонки
+                                   другое-коврик, другое-накопитель, другое-зарядка" required><br>
+                                <input type="text" name="maker[]" value="<?= $tovar['Maker'] ?>" required><br>
+                                <input type="number" name="garant[]" value="<?= $tovar['Garant'] ?>">
+                            </div>
+                            <div class="form">
+                                <p>задание параметров товара</p>
+                                <textarea name="parameter[]" cols="30" rows="10" required><?= $par ?></textarea><br>
+                            </div>
+                            <?php } ?>
+                    </div>
+                    <input type="submit" value="Принять" name="TovarEdd">
+                </form>
+            </div>
+            <?php } ?>
+
+        
         <br>
 
         <form action="event.php" method="post" enctype="multipart/form-data" class="panel">
@@ -93,57 +141,12 @@ include_once 'header.php';
             </div>
         </div>
         <hr>
-        <?php
-    if (isset($_GET['edit'])) {
-        ?>
-            <div class="editing">
-                <form action="event.php" method="post" class="pane2">
-                    <div class="forms">
-
-                        <?php
-                    foreach ($_GET['edit'] as $key => $val) {
-                        $arrayOne = [];
-                        $arrayTwo = [];
-                        $tovars = getTovar($val);
-                        $tovar = $tovars->fetch_array(MYSQLI_ASSOC);
-
-                        $parameters = getParameters($val);
-                        while ($param = $parameters->fetch_array(MYSQLI_ASSOC)) {
-                            $arrayOne[] = $param['Parametr'];
-                            $arrayTwo[] = $param['Value'];
-                        }
-                        $arrayTree = array_merge($arrayOne, $arrayTwo);
-                        $par = implode(';', $arrayTree);
-                        ?>
-                            <div class="form">
-                                <p>изменение записи товара</p>
-                                <input type="hidden" name="firstName[]" value="<?= $tovar['Name'] ?>">
-                                <input type="text" name="nameTovar[]"  value="<?= $tovar['Name'] ?>" required><br>
-                                <textarea name="description[]" cols="30" rows="10" title="можно не указывать"><?= $tovar['Description'] ?></textarea><br>
-                                <input type="number" min="1" name="Price[]" value="<?= $tovar['Cell'] ?>" required><br>
-                                <input type="text" name="type[]" value="<?= $tovar['Type'] ?>" title="вводить тип товара(ввод)-вид (мышь).
-                                   ввод-мышь, ввод-клавиатура, ввод-камера, ввод-геймпад, ввод-руль
-                                   вывод-наушники, вывод-монитор, вывод-колонки
-                                   другое-коврик, другое-накопитель, другое-зарядка" required><br>
-                                <input type="text" name="maker[]" value="<?= $tovar['Maker'] ?>" required><br>
-                                <input type="number" name="garant[]" value="<?= $tovar['Garant'] ?>">
-                            </div>
-                            <div class="form">
-                                <p>задание параметров товара</p>
-                                <textarea name="parameter[]" cols="30" rows="10" required><?= $par ?></textarea><br>
-                            </div>
-                            <?php } ?>
-                    </div>
-                    <input type="submit" value="Принять" name="TovarEdd">
-                </form>
-            </div>
-            <?php } ?>
-
+        
             <div class="formatter">
                 редактирование товаров
                 <form action="event.php" method="post">
-                    <table>
-                        <tr>
+                    <table class="table table-striped table-bordered table-hover">
+                       <thead class="thead-dark">
                             <td></td>
                             <td></td>
                             <td></td>
@@ -152,7 +155,7 @@ include_once 'header.php';
                             <td>Тип</td>
                             <td>Производитель</td>
                             <td>Гарантия(год)</td>
-                        </tr>
+                        </thead>
                         <?php
                 $tovars = getTovars();
                 while ($tovar = $tovars->fetch_array(MYSQLI_ASSOC)) {
