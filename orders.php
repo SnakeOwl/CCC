@@ -15,17 +15,17 @@ include_once 'head.php';
 include_once 'header.php';
 ?>
 
-    <main>
+    <main class="container">
         <h2>Эта таблица показывает новые заказы, просто нажмите на кноку когда отправите заказ</h2>
-        <table>
-            <tr>
+        <table class="table table-striped table-bordered table-hover">
+                       <thead class="thead-light">
                 <th></th>
                 <th>товары</th>
                 <th>дата заказа</th>
-                <th>ИД человека</th>
+                <th>ID человека</th>
                 <th>счет</th>
                 <th>статус</th>
-            </tr>
+            </thead>
 
             <?php
     $orders = getNewOrders();
