@@ -10,7 +10,7 @@ if (isset($_COOKIE['Login'])) {
  //       header ("Location: http://www.google.com");
 }
 ?>
-    <main>
+    <main class="container">
         <h2 id="warning"></h2>
         <?php
     if (isset($_GET['edit'])) {
@@ -36,13 +36,16 @@ if (isset($_COOKIE['Login'])) {
 <button id="getMoney" class="bttn-slant bttn-md bttn-success">пополнить счет</button> <br><br>
                 <span>Заказы:</span><br>
                 <div class="orders">
-                    <table>
-                        <tr>
+                    <table class="table table-striped table-bordered table-hover">
+                       <thead class="thead-dark">
+                           <tr>
                             <th>наименование заказа</th>
                             <th>дата заказа</th>
-                            <th>цена со скидкой</th>
+                            <th>цена</th>
                             <th>статус заказа</th>
                         </tr>
+                       </thead>
+                        
                         <?php
     $orders = getOrderByIDP($data['IDPerson']);
     if (isset($orders)) {
