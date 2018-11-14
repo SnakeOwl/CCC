@@ -1,13 +1,19 @@
 <body>
-    <header>
-        <a href="index.php">
+    <header class="container w-100">
+      <div class="row">
+          <div class="col-xs-12 col-md-7">
+           <a href="index.php">
             <img src="Images/logo.png" alt="logo" class="logo">
         </a>
-        <form action="./event.php">
+        <form action="./event.php" >
             <input type="text" id="stringFind" name='f' <?php if (isset($_GET[ 'f'])) { if ($_GET[ 'f']=='not' ) echo " placeholder='не найдено'  style='box-shadow:0 0 0 1px red'"; } else { echo " placeholder='введите полное название товара'"; } ?> >
-            <span class="Bfind"><img src="Images/search.png" height="24" alt=""></span>
+            <span class="Bfind ml-2 pt-0"><img src="Images/search.png" height="24" alt=""></span>
         </form>
-        <nav>
+       </div>
+      
+       
+        
+        <nav class="col-xs-12 col-md-5">
             <ul>
                 <li><a href="index.php" title="на главную"><img src="Images/home.png" width="34" alt=""></a></li>
                 <li><a href="stores.php" title="магазины"><img src="Images/stores.png" width="34" alt=""></a></li>
@@ -29,6 +35,7 @@
                 <?php } ?>
             </ul>
         </nav>
+        </div>
         <script>
             $('.Bfind').on('click', function() {
                 window.location = "./event.php?f=" + document.getElementById('stringFind').value
